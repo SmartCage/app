@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS light;
 DROP TABLE IF EXISTS parrot;
 DROP TABLE IF EXISTS parrot_type;
 DROP TABLE IF EXISTS post;
-DROP TABLE IF EXISTS temperature;
 DROP TABLE IF EXISTS user;
 
 
@@ -24,7 +23,6 @@ CREATE TABLE facility (
   cage_id INTEGER NOT NULL,
   electricity INTEGER NOT NULL,
   movement_sensor INTEGER NOT NULL,
-  temperature_sensor INTEGER NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (cage_id) REFERENCES cage (id)
 );
@@ -63,8 +61,6 @@ CREATE TABLE parrot_type (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
   food_id INTEGER NOT NULL,
-  min_temperature REAL NOT NULL,
-  max_temperature REAL NOT NULL,
   min_light_intensity REAL NOT NULL,
   max_light_intensity REAL NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

@@ -7,24 +7,21 @@ import db
 import auth
 import status
 import food
+import parrot_type
+import cage
 
 import eventlet
 import json
 import time
 import os 
-
 eventlet.monkey_patch()
-
 app = None
 mqtt = None
 socketio = None
 thread = None
-
 topic = 'python/mqtt'
-
-
 def create_app(test_config=None):
-
+    
     # create and configure the app
     global app 
     app = Flask(__name__, instance_relative_config=True)
@@ -32,7 +29,7 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
-
+      
     @app.route('/')
     def hello():
         global thread
@@ -41,14 +38,12 @@ def create_app(test_config=None):
             thread.daemon = True
             thread.start()
         return 'Hello, World!'
-
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
-
     # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
@@ -58,6 +53,8 @@ def create_app(test_config=None):
     db.init_app(app)
     app.register_blueprint(auth.bp)
     app.register_blueprint(food.bp)
+    app.register_blueprint(cage.bp)
+    app.register_blueprint(parrot_type.bp)
 
     return app
 
