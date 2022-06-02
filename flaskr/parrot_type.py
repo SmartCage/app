@@ -41,7 +41,7 @@ def set_parrot_type():
     db = get_db()
     db.execute(
         'INSERT INTO parrot_type (name, food_id, min_light_intensity, max_light_intensity)'
-        ' VALUES (?, ?, ?, ?, ?, ?)',
+        ' VALUES (?, ?, ?, ?)',
         (type_name, food_name_id, min_light_intensity, max_light_intensity)
     )
     db.commit()
