@@ -12,9 +12,9 @@ def set_cage():
     error = None
 
     if not default_mode:
-        return jsonify({'status': 'Default mode is required.'}), 403
+        return jsonify({'status': 'Please enter desired mode'}), 403
     elif not total_quantity:
-        return jsonify({'status': 'Total quantity is required.'}), 403
+        return jsonify({'status': 'Please enter total quantity'}), 403
 
     print(default_mode)
     print(total_quantity)
@@ -32,7 +32,7 @@ def set_cage():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Default mode and total quantity successfully recorded',
+        'status': 'Success',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],

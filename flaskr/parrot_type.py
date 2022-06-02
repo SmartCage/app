@@ -23,26 +23,26 @@ def set_parrot_type():
     type_name = request.form['name']
     min_light_intensity = request.form['min_light_intensity']
     max_light_intensity = request.form['max_light_intensity']
-    food_type_id = request.form['food_id']
+    food_name_id = request.form['food_id']
 
     if not type_name:
-        return jsonify({'status': 'Parrot type name is required.'}), 403
+        return jsonify({'status': 'Please enter parrot type name'}), 403
     elif not min_light_intensity:
-        return jsonify({'status': 'Parrot type min light intensity is required.'}), 403
+        return jsonify({'status': 'Please enter parrot type min light'}), 403
     elif not max_light_intensity:
-        return jsonify({'status': 'Parrot type max light intensity is required.'}), 403
-    elif not food_type_id:
-        return jsonify({'status': 'Parrot type food id is required.'}), 403
+        return jsonify({'status': 'Please enter parrot type max light'}), 403
+    elif not food_name_id:
+        return jsonify({'status': 'Please enter parrot type food'}), 403
 
     print(type_name)
     print(min_light_intensity)
     print(max_light_intensity)
-    print(food_type_id)
+    print(food_name_id)
     db = get_db()
     db.execute(
         'INSERT INTO parrot_type (name, food_id, min_light_intensity, max_light_intensity)'
         ' VALUES (?, ?, ?, ?, ?, ?)',
-        (type_name, food_type_id, min_light_intensity, max_light_intensity)
+        (type_name, food_name_id, min_light_intensity, max_light_intensity)
     )
     db.commit()
 
@@ -52,7 +52,7 @@ def set_parrot_type():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Parrot type successfully recorded',
+        'status': 'Success',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -70,7 +70,7 @@ def update_parrot_type():
     type_name = request.form['name']
     min_light_intensity = request.form['min_light_intensity']
     max_light_intensity = request.form['max_light_intensity']
-    food_type_id = request.form['food_id']
+    food_name_id = request.form['food_id']
 
     if not parrot_type_id:
         return jsonify({'status': 'Parrot type id is required.'}), 403
@@ -80,21 +80,21 @@ def update_parrot_type():
         return jsonify({'status': 'Parrot type min light intensity is required.'}), 403
     elif not max_light_intensity:
         return jsonify({'status': 'Parrot type max light intensity is required.'}), 403
-    elif not food_type_id:
+    elif not food_name_id:
         return jsonify({'status': 'Parrot type food id is required.'}), 403
 
     print(parrot_type_id)
     print(type_name)
     print(min_light_intensity)
     print(max_light_intensity)
-    print(food_type_id)
+    print(food_name_id)
 
     db = get_db()
     db.execute(
         'UPDATE parrot_type'
         ' SET name=?, min_light_intensity=?, max_light_intensity=?, food_id=?, timestamp=CURRENT_TIMESTAMP'
         ' WHERE id=?',
-        (type_name, min_light_intensity, max_light_intensity, food_type_id, parrot_type_id)
+        (type_name, min_light_intensity, max_light_intensity, food_name_id, parrot_type_id)
     )
     db.commit()
 
@@ -105,7 +105,7 @@ def update_parrot_type():
         parrot_type_id
     ).fetchone()
     return jsonify({
-        'status': 'Parrot type successfully updated',
+        'status': 'Success',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -122,7 +122,7 @@ def delete_parrot_type():
     parrot_type_id = request.form['id']
 
     if not parrot_type_id:
-        return jsonify({'status': 'Parrot type id is required.'}), 403
+        return jsonify({'status': 'Please enter parrot id'}), 403
 
     print(parrot_type_id)
 
@@ -135,5 +135,5 @@ def delete_parrot_type():
     db.commit()
 
     return jsonify({
-        'status': 'Parrot type successfully deleted',
+        'status': 'Success',
     }), 200 

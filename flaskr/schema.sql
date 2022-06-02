@@ -29,7 +29,7 @@ CREATE TABLE facility (
 
 CREATE TABLE food (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  type TEXT NOT NULL,
+  name TEXT NOT NULL,
   quantity REAL NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -48,12 +48,12 @@ CREATE TABLE light (
 CREATE TABLE feeding_schedule (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   cage_id INTEGER NOT NULL,
-  food_type_id INTEGER NOT NULL,
+  food_name_id INTEGER NOT NULL,
   schedule TEXT NOT NULL,
   available_type_quantity REAL NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (cage_id) REFERENCES cage (id),
-  FOREIGN KEY (food_type_id) REFERENCES food (id)
+  FOREIGN KEY (food_name_id) REFERENCES food (id)
 );
 
 

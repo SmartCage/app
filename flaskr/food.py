@@ -8,46 +8,46 @@ bp = Blueprint('food', __name__)
 @bp.route('/food', methods=['GET'])
 def get_food():
     all_foods = get_db().execute(
-        'SELECT id, timestamp, type, quantity'
+        'SELECT id, timestamp, name, quantity'
         ' FROM food'
         ' ORDER BY timestamp DESC'
     ).fetchall()
     result = ""
     for row in all_foods:
-        result = result + str(row['id']) + " " + str(row['type']) + " " + str(row['quantity'])\
+        result = result + str(row['id']) + " " + str(row['name']) + " " + str(row['quantity'])\
                  + " " + str(row['timestamp']) + "\n"
     return result
 
 
 @bp.route('/food', methods=['POST'])
 def set_food():
-    food_type = request.form['food']
+    food_name = request.form['food']
     quantity = request.form['quant']
 
-    if not food_type:
-        return jsonify({'status': 'Food type is required.'}), 403
+    if not food_name:
+        return jsonify({'status': 'Please enter the food name.'}), 403
     elif not quantity:
-        return jsonify({'status': 'Food quantity is required.'}), 403
-    print(food_type)
+        return jsonify({'status': 'Please enter the food quantity.'}), 403
+    print(food_name)
     print(quantity)
     db = get_db()
     db.execute(
-        'INSERT INTO food (type, quantity)'
+        'INSERT INTO food (name, quantity)'
         ' VALUES (?, ?)',
-        (food_type, quantity)
+        (food_name, quantity)
     )
     db.commit()
     check = get_db().execute(
-        'SELECT id, timestamp, type, quantity'
+        'SELECT id, timestamp, name, quantity'
         ' FROM food'
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Food type successfully recorded',
+        'status': 'Success',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
-            'type': check['type'],
+            'name': check['name'],
             'quantity': check['quantity']
          }
          }), 200
@@ -57,7 +57,7 @@ def delete_food():
     food_id = request.form['id']
 
     if not food_id:
-        return jsonify({'status': 'Food id is required.'}), 403
+        return jsonify({'status': 'Please enter a food name '}), 403
 
     print(food_id)
 
@@ -70,48 +70,48 @@ def delete_food():
     db.commit()
 
     return jsonify({
-        'status': 'Food type successfully deleted',
+        'status': 'Success',
     }), 200 
 
 
 @bp.route('/food', methods=['PUT'])
 def update_food():
     food_id = request.form['id']
-    food_type = request.form['food']
+    food_name = request.form['food']
     quantity = request.form['quant']
 
     if not food_id:
-        return jsonify({'status': 'Food id is required.'}), 403
+        return jsonify({'status': 'Please enter a food id '}), 403
     elif not quantity:
-        return jsonify({'status': 'Food quantity is required.'}), 403
-    elif not food_type:
-        return jsonify({'status': 'Food type is required.'}), 403
+        return jsonify({'status': 'Please enter food quantity '}), 403
+    elif not food_name:
+        return jsonify({'status': 'Please enter the food name'}), 403
 
     print(food_id)
     print(quantity)
-    print(food_type)
+    print(food_name)
 
     db = get_db()
     db.execute(
         'UPDATE food'
-        ' SET type=?, quantity=?, timestamp=CURRENT_TIMESTAMP'
+        ' SET name=?, quantity=?, timestamp=CURRENT_TIMESTAMP'
         ' WHERE id=?',
-        (food_type, quantity, food_id)
+        (food_name, quantity, food_id)
     )
     db.commit()
 
     check = get_db().execute(
-        'SELECT id, timestamp, type, quantity'
+        'SELECT id, timestamp, name, quantity'
         ' FROM food'
         ' WHERE id=?',
         food_id
     ).fetchone()
     return jsonify({
-        'status': 'Food type successfully updated',
+        'status': 'Success',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
-            'type': check['type'],
+            'name': check['name'],
             'quantity': check['quantity']
         }
     }), 200
