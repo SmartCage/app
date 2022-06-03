@@ -3,12 +3,14 @@ from threading import Thread
 from flask_mqtt import Mqtt
 from flask_socketio import SocketIO
 
+
 import db
 import auth
 import status
 import food
 import parrot_type
 import cage
+import feeding_schedule
 
 import eventlet
 import json
@@ -55,6 +57,7 @@ def create_app(test_config=None):
     app.register_blueprint(food.bp)
     app.register_blueprint(cage.bp)
     app.register_blueprint(parrot_type.bp)
+    app.register_blueprint(feeding_schedule.bp)
 
     return app
 
