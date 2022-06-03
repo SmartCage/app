@@ -7,11 +7,14 @@ DROP TABLE IF EXISTS parrot;
 DROP TABLE IF EXISTS parrot_type;
 DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS heat;
 
 
 CREATE TABLE cage(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   default_mode TEXT NOT NULL,
+  temperature REAL NOT NULL,
+  required_temperature REAL NOT NULL,
   total_food_quantity REAL NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -43,6 +46,14 @@ CREATE TABLE light (
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (cage_id) REFERENCES cage (id)
 );
+CREATE TABLE heat (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  cage_id INTEGER NOT NULL,
+  intensity REAL NOT NULL,
+  max_heat TEXT NOT NULL,
+  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (cage_id) REFERENCES cage (id)
+);
 
 CREATE TABLE feeding_schedule (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -54,6 +65,7 @@ CREATE TABLE feeding_schedule (
   FOREIGN KEY (cage_id) REFERENCES cage (id),
   FOREIGN KEY (food_name_id) REFERENCES food (id)
 );
+
 
 
 CREATE TABLE parrot_type (

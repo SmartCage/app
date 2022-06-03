@@ -13,6 +13,7 @@ import cage
 import feeding_schedule
 import parrot
 import light
+import heat
 
 import eventlet
 import json
@@ -62,6 +63,7 @@ def create_app(test_config=None):
     app.register_blueprint(feeding_schedule.bp)
     app.register_blueprint(parrot.bp)
     app.register_blueprint(light.bp)
+    app.register_blueprint(heat.bp)
 
     return app
 
