@@ -2,7 +2,10 @@ from flask import Flask
 from threading import Thread
 from flask_mqtt import Mqtt
 from flask_socketio import SocketIO
-
+import eventlet
+import json
+import time
+import os 
 
 import db
 import auth
@@ -15,25 +18,26 @@ import parrot
 import light
 import heat
 
-import eventlet
-import json
-import time
-import os 
+
 eventlet.monkey_patch()
 app = None
 mqtt = None
 socketio = None
 thread = None
 topic = 'python/mqtt'
-def create_app(test_config=None):
+def create_app():
     
     # create and configure the app
-    global app 
+    global app
+    
     app = Flask(__name__, instance_relative_config=True)
+    app.config['TESTING'] = True
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
+    app.config['TESTING'] = True
+    
       
     @app.route('/')
     def hello():
@@ -43,13 +47,13 @@ def create_app(test_config=None):
             thread.daemon = True
             thread.start()
         return 'Hello, World!'
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        # load the test config if passed in
-        app.config.from_mapping(test_config)
-    # ensure the instance folder exists
+#   if test_config is None:
+#        # load the instance config, if it exists, when not testing
+#        app.config.from_pyfile('config.py', silent=True)
+#    else:
+#        # load the test config if passed in
+#        app.config.from_mapping(test_config)
+#    # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
     except OSError:
@@ -79,7 +83,7 @@ def background_thread():
         mqtt.publish(topic, message)
 
 def create_mqtt_app():
-    global app 
+ #   global app 
     # Setup connection to mqtt broker
     app.config['MQTT_BROKER_URL'] = 'localhost' 
     app.config['MQTT_BROKER_PORT'] = 1883  # default port for non-tls connection
