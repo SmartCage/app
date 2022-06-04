@@ -52,20 +52,22 @@ def set_food():
          }
          }), 200
 
-@bp.route('/food', methods=['DELETE'])
-def delete_food():
-    food_id = request.form['id']
 
-    if not food_id:
-        return jsonify({'status': 'Please enter a food name '}), 403
 
-    print(food_id)
+
+@bp.route('/food/<string:_id>', methods=['DELETE'])
+def delete_food(_id):
+    if not _id:
+        return jsonify({'status': 'Food id is required.'}), 403
+
+
+    print(_id)
 
     db = get_db()
     db.execute(
         'DELETE FROM food'
         ' WHERE id=?',
-        food_id
+        (_id,)
     )
     db.commit()
 
@@ -104,8 +106,12 @@ def update_food():
         'SELECT id, timestamp, name, quantity'
         ' FROM food'
         ' WHERE id=?',
-        food_id
+        (food_id,)
     ).fetchone()
+
+    if not check:
+        return jsonify({'status': 'Food does not exist.'}), 404
+        
     return jsonify({
         'status': 'Success',
         'data': {

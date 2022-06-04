@@ -7,14 +7,15 @@ bp = Blueprint('light', __name__)
 @bp.route('/light', methods=['GET'])
 def get_light():
     all_lights = get_db().execute(
-        'SELECT id, timestamp, cage_id, intensity, start, end'
+        'SELECT *'
         ' FROM light'
         ' ORDER BY timestamp DESC'
     ).fetchall()
     result = ""
     for row in all_lights:
-        result = result + str(row['id']) + " " + str(row['cage_id']) + " " + str(row['intensity'])\
-             + " " + str(row['start']) + " " + str(row['end']) + " " + str(row['timestamp']) + "\n"
+        result = result + str(row['id']) + " " + str(row['color']) + "  intensity:" + str(row['intensity']) \
+                 + "  schedule:" + str(row['schedule']) + "  cage_id:" + str(row['cage_id']) + "  " + \
+                 str(row['timestamp']) + "\n"
     return result
 
 @bp.route('/light', methods=['POST'])

@@ -51,6 +51,7 @@ def set_parrot_type():
         ' FROM parrot_type'
         ' ORDER BY timestamp DESC'
     ).fetchone()
+
     return jsonify({
         'status': 'Success',
         'data': {
@@ -102,8 +103,10 @@ def update_parrot_type():
         'SELECT *'
         ' FROM parrot_type'
         ' WHERE id=?',
-        parrot_type_id
+        (parrot_type_id,)
     ).fetchone()
+    if not check:
+        return jsonify({'status': 'Parrot type does not exist.'}), 404
     return jsonify({
         'status': 'Success',
         'data': {
@@ -117,20 +120,19 @@ def update_parrot_type():
     }), 200
 
 
-@bp.route('/parrot_type', methods=['DELETE'])
-def delete_parrot_type():
-    parrot_type_id = request.form['id']
+@bp.route('/parrot_type/<string:_id>', methods=['DELETE'])
+def delete_parrot_type(_id):
+    if not _id:
+        return jsonify({'status': 'Parrot type id is required.'}), 403
 
-    if not parrot_type_id:
-        return jsonify({'status': 'Please enter parrot id'}), 403
 
-    print(parrot_type_id)
+    print(_id)
 
     db = get_db()
     db.execute(
         'DELETE FROM parrot_type'
         ' WHERE id=?',
-        parrot_type_id
+        (_id,)
     )
     db.commit()
 

@@ -35,7 +35,7 @@ def set_feeding_schedule():
     elif not food_name_id:
         return jsonify({"status": "Food type is required."}), 403
     elif not schedule:
-        return jsonify({"status": "Status is required."}), 403
+        return jsonify({"status": "Schedule is required."}), 403
     elif not available_type_quantity:
         return jsonify({"status": "Available type quantity is required."}), 403
 
@@ -109,8 +109,11 @@ def update_feeding_schedule():
         'SELECT * '
         'FROM feeding_schedule '
         'WHERE id=?',
-        feeding_id
+        (feeding_id,)
     ).fetchone()
+
+    if not check:
+        return jsonify({'status': 'Feeding schedule does not exist.'}), 404
 
     return jsonify({
         "status": "Feeding schedule successfully updated.",
@@ -125,20 +128,18 @@ def update_feeding_schedule():
     }), 200
 
 
-@bp.route("/feeding_schedule", methods=["DELETE"])
-def delete_feeding_schedule():
-    feeding_id = request.form["id"]
-
-    if not feeding_id:
+@bp.route("/feeding_schedule/<string:_id>", methods=["DELETE"])
+def delete_feeding_schedule(_id):
+    if not _id:
         return jsonify({"status": "Feeding schedule id is required."}), 403
 
-    print(feeding_id)
+    print(_id)
 
     db = get_db()
     db.execute(
         'DELETE FROM feeding_schedule '
         'WHERE id=?',
-        feeding_id
+        (_id,)
     )
     db.commit()
 

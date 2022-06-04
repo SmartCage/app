@@ -114,8 +114,12 @@ def update_parrot():
         'SELECT *'
         ' FROM parrot'
         ' WHERE id=?',
-        parrot_id
+        (parrot_id,)
     ).fetchone()
+
+    if not check:
+        return jsonify({'status': 'Parrot does not exist.'}), 404
+
     return jsonify({
         'status': 'Success',
         'data': {
@@ -130,19 +134,17 @@ def update_parrot():
     }), 200
 
 
-@bp.route('/parrot', methods=['DELETE'])
-def delete_parrot():
-    parrot_id = request.form['id']
-
-    if not parrot_id:
-        return jsonify({'status': 'parrot id '}), 403
-    print(f"parrot id is {parrot_id}")
+@bp.route('/parrot/<string:_id>', methods=['DELETE'])
+def delete_parrot(_id):
+    if not _id:
+        return jsonify({'status': 'Parrod id is required.'}), 403
+    print(f"Parrot id is {_id}")
 
     db = get_db()
     db.execute(
         'DELETE FROM parrot'
         ' WHERE id=?',
-        parrot_id
+        (_id,)
     )
     db.commit()
     return jsonify({'status': 'Success'}), 200
