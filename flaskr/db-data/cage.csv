@@ -1,0 +1,8 @@
+default_mode,temperature,required_temperature,total_food_quantity
+proprietar,20,24,500
+pet-shop,19,24,600
+proprietar,20,22,400
+pet-shop,21,23,250
+proprietar,19,23,200
+pet-shop,20,22,320
+pet-shop,21,22,250

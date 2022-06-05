@@ -43,7 +43,7 @@ def set_food():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Success',
+        'status': 'Food name successfully updated',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -51,8 +51,6 @@ def set_food():
             'quantity': check['quantity']
          }
          }), 200
-
-
 
 
 @bp.route('/food/<string:_id>', methods=['DELETE'])
@@ -72,8 +70,8 @@ def delete_food(_id):
     db.commit()
 
     return jsonify({
-        'status': 'Success',
-    }), 200 
+        'status': 'Food name successfully deleted',
+    }), 200
 
 
 @bp.route('/food', methods=['PUT'])
@@ -83,11 +81,11 @@ def update_food():
     quantity = request.form['quant']
 
     if not food_id:
-        return jsonify({'status': 'Please enter a food id '}), 403
+        return jsonify({'status': 'Food id is required.'}), 403
     elif not quantity:
-        return jsonify({'status': 'Please enter food quantity '}), 403
+        return jsonify({'status': 'Food quantity is required.'}), 403
     elif not food_name:
-        return jsonify({'status': 'Please enter the food name'}), 403
+        return jsonify({'status': 'Food name is required.'}), 403
 
     print(food_id)
     print(quantity)
@@ -111,9 +109,9 @@ def update_food():
 
     if not check:
         return jsonify({'status': 'Food does not exist.'}), 404
-        
+
     return jsonify({
-        'status': 'Success',
+        'status': 'Food name successfully updated',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],

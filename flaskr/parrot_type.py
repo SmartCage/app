@@ -13,8 +13,8 @@ def get_parrot_type():
     ).fetchall()
     result = ""
     for row in all_parrot_types:
-        result = result + str(row['id']) + " " + str(row['name']) + "  light:" + str(row['min_light_intensity']) + "-"\
-                 + str(row['max_light_intensity']) + " food_id:" + str(row['food_id']) + " " + str(row['timestamp'])\
+        result = result + str(row['id']) + " " + str(row['name']) + "  " + str(row['food_id']) + " "\
+                 + str(row['min_light_intensity']) + " " + str(row['max_light_intensity']) + " " + str(row['timestamp'])\
                  + "\n"
     return result
 
@@ -53,7 +53,7 @@ def set_parrot_type():
     ).fetchone()
 
     return jsonify({
-        'status': 'Success',
+        'status': 'Parrot type successfully created',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -106,9 +106,11 @@ def update_parrot_type():
         (parrot_type_id,)
     ).fetchone()
     if not check:
-        return jsonify({'status': 'Parrot type does not exist.'}), 404
+
+        return jsonify({'status': 'Parrot type not found'}), 404
+
     return jsonify({
-        'status': 'Success',
+        'status': 'Parrot type successfully updated',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -123,7 +125,8 @@ def update_parrot_type():
 @bp.route('/parrot_type/<string:_id>', methods=['DELETE'])
 def delete_parrot_type(_id):
     if not _id:
-        return jsonify({'status': 'Parrot type id is required.'}), 403
+
+        return jsonify({'status': 'parrot type id is required.'}), 403
 
 
     print(_id)
@@ -137,5 +140,5 @@ def delete_parrot_type(_id):
     db.commit()
 
     return jsonify({
-        'status': 'Success',
+        'status': 'parrot type successfully deleted.',
     }), 200 

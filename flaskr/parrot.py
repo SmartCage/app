@@ -14,9 +14,9 @@ def get_parrot():
     ).fetchall()
     result = ""
     for row in all_parrot:
-        result = result + str(row['id']) + " " + str(row['name']) + " health:" + str(row['health']) \
-        + " birthday: " + str(row['birthday']) + " type_id: " + str(row['type_id']) + " cage_id" \
-        + str(row['cage_id']) + " timestamp: " + str(row['timestamp']) + "\n"
+        result = result + str(row['id']) + " " + str(row['type_id']) + " " \
+        + str(row['cage_id']) + " " + str(row['name']) + " " + str(row['health']) \
+        + " " + str(row['birthday']) + " " + str(row['timestamp']) + "\n"
     return result
 
 
@@ -29,7 +29,7 @@ def set_parrot():
     cage_id = request.form['cage_id']
 
     if not name:
-        return jsonify({'status': 'Please enter parrot name '}), 403
+        return jsonify({'status': 'Please enter parrot name'}), 403
     elif not health:
         return jsonify({'status': 'Please enter parrot health info '}), 403
     elif not birthday:
@@ -59,7 +59,7 @@ def set_parrot():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Success',
+        'status': 'Parrot successfully created',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -118,10 +118,11 @@ def update_parrot():
     ).fetchone()
 
     if not check:
-        return jsonify({'status': 'Parrot does not exist.'}), 404
+
+        return jsonify({'status': 'Parrot not found'}), 404
 
     return jsonify({
-        'status': 'Success',
+        'status': 'Parrot successfully updated',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -137,8 +138,10 @@ def update_parrot():
 @bp.route('/parrot/<string:_id>', methods=['DELETE'])
 def delete_parrot(_id):
     if not _id:
-        return jsonify({'status': 'Parrod id is required.'}), 403
-    print(f"Parrot id is {_id}")
+
+        return jsonify({'status': 'parrot id is required.'}), 403
+    print(f"parrot id is {_id}")
+
 
     db = get_db()
     db.execute(
@@ -147,4 +150,4 @@ def delete_parrot(_id):
         (_id,)
     )
     db.commit()
-    return jsonify({'status': 'Success'}), 200
+    return jsonify({'status': 'parrot successfully deleted.'}), 200

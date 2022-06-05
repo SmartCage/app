@@ -14,11 +14,8 @@ def get_feeding_schedule():
     ).fetchall()
 
     result = ""
-    for fs in all_feeding_schedules:
-        fields = [str(fs["id"]), f"cage={str(fs['cage_id'])}", f"food_name={str(fs['food_name_id'])}",
-                  f"schedule={str(fs['schedule'])}", f"available_type_quantity={str(fs['available_type_quantity'])}",
-                  str(fs["timestamp"])]
-        result += " ".join(fields)
+    for row in all_feeding_schedules:
+        result =result + str(row["id"]) + " " + str(row["cage_id"])+ " " + str(row["food_name_id"])+ " " + str(row["schedule"])+ " " + str(row["available_type_quantity"]) + " " + str(row['timestamp']) + "\n"
 
     return result
 
@@ -86,7 +83,7 @@ def update_feeding_schedule():
     elif not food_name_id:
         return jsonify({"status": "Food type is required."}), 403
     elif not schedule:
-        return jsonify({"status": "Status is required."}), 403
+        return jsonify({"status": "Schedule is required."}), 403
     elif not available_type_quantity:
         return jsonify({"status": "Available type quantity is required."}), 403
 
@@ -116,7 +113,7 @@ def update_feeding_schedule():
         return jsonify({'status': 'Feeding schedule does not exist.'}), 404
 
     return jsonify({
-        "status": "Feeding schedule successfully updated.",
+        "status": "Feeding schedule successfully updated",
         "data": {
             "id": check["id"],
             "cage_id": check["cage_id"],
@@ -144,5 +141,5 @@ def delete_feeding_schedule(_id):
     db.commit()
 
     return jsonify({
-        "status": "Feeding schedule successfully deleted."
+        "status": "Feeding schedule successfully deleted"
     }), 200

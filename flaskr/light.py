@@ -49,7 +49,7 @@ def set_light():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Success',
+        'status': 'light successfully created',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -59,19 +59,70 @@ def set_light():
             'end': check['end']
         }
         }), 200 
-@bp.route('/light', methods=['DELETE'])
-def delete_light():
-    light_id = request.form['id']
 
+@bp.route('/light', methods=['PUT'])
+def update_light():
+    light_id = request.form['id']
+    cage_id = request.form['cage_id']
+    intensity = request.form['intensity']
+    start = request.form['start']
+    end = request.form['end']
     if not light_id:
-        return jsonify({'status': 'light id '}), 403
-    print(f"light id is {light_id}")
+        return jsonify({'status': 'Please enter light id'}), 403
+    if not cage_id:
+        return jsonify({'status': 'Please enter cage id'}), 403
+    elif not intensity:
+        return jsonify({'status': 'Please enter intensity'}), 403
+    elif not start: 
+        return jsonify({'status': 'Please enter start time'}), 403  
+    elif not end: 
+        return jsonify({'status': 'Please enter stop time'}), 403 
+
+
+    db = get_db()
+    db.execute(
+        'UPDATE light'
+        ' SET cage_id=?, intensity=?, start=?, end=?, timestamp=CURRENT_TIMESTAMP'
+        ' WHERE id=?',
+        (cage_id, intensity, start, end, light_id)
+    )
+    db.commit()
+
+    check = get_db().execute(
+        'SELECT id, cage_id, intensity, start, end, timestamp'
+        ' FROM light'
+        ' WHERE id=?',
+        (light_id,)
+    ).fetchone()
+
+    if not check:
+        return jsonify({'status': 'light not found'}), 404
+
+    return jsonify({
+        'status': 'light successfully updated',
+        'data': {
+            'id': check['id'],
+            'cage_id': check['cage_id'],
+            'intensity': check['intensity'],
+            'start': check['start'],
+            'end': check['end'],
+            'timestamp': check['timestamp']
+        }
+    }), 200
+
+@bp.route('/light/<string:_id>', methods=['DELETE'])
+def delete_light(_id):
+    if not _id:
+        return jsonify({'status': 'light id is required '}), 403
+
+    
+    print(_id)
 
     db = get_db()
     db.execute(
         'DELETE FROM light'
         ' WHERE id=?',
-        light_id
+        (_id,)
     )
     db.commit()
-    return jsonify({'status': 'Success'}), 200
+    return jsonify({'status': 'light successfully deleted'}), 200
