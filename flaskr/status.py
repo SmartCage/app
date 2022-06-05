@@ -8,7 +8,7 @@ def get_status():
     ).fetchone()
 
     cage_data = get_db().execute(
-        'SELECT id, timestamp, default_mode, total_food_quantity'
+        'SELECT id, timestamp, total_food_quantity'
         ' FROM cage'
         ' ORDER BY timestamp DESC'
     ).fetchone()
@@ -39,7 +39,6 @@ def get_status():
                 'timestamp': food_data['timestamp']
         },
         'cage': {
-                'default_mode': cage_data['default_mode'],
                 'total_food_quantity': cage_data['total_food_quantity'],
                 'timestamp': cage_data['timestamp']
             },

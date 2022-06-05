@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS heat;
 
 CREATE TABLE cage(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  default_mode TEXT NOT NULL,
   temperature REAL NOT NULL,
   required_temperature REAL NOT NULL,
   total_food_quantity REAL NOT NULL,
