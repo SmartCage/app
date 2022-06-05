@@ -3,7 +3,6 @@ info:
   version: 1.0.0
   title: SmartCage
   description: 'Smart Cage app'
-  basePath: /
 
   contact:
     url: https://github.com/SmartCage
