@@ -52,10 +52,12 @@ def set_food():
          }
          }), 200
 
+
 @bp.route('/food/<string:_id>', methods=['DELETE'])
 def delete_food(_id):
     if not _id:
         return jsonify({'status': 'Food id is required.'}), 403
+
 
     print(_id)
 

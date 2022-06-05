@@ -14,6 +14,7 @@ import feeding_schedule
 import parrot
 import light
 import heat
+import temperature
 
 import eventlet
 import json
@@ -24,6 +25,9 @@ app = None
 mqtt = None
 socketio = None
 thread = None
+thread_temp = None
+
+
 topic = 'python/mqtt'
 def create_app(test_config=None):
     
@@ -37,11 +41,15 @@ def create_app(test_config=None):
       
     @app.route('/')
     def hello():
-        global thread
+        global thread, thread_temp
         if thread is None:
             thread = Thread(target=background_thread)
             thread.daemon = True
             thread.start()
+            thread_temp = Thread(target=thread_temperature)
+            thread_temp.daemon = True
+            thread_temp.start()
+
         return 'Hello, World!'
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -99,6 +107,16 @@ def run_socketio_app():
     create_app()
     create_mqtt_app()
     socketio.run(app, host='localhost', port=5000, use_reloader=False, debug=True)
+
+def thread_temperature():
+    while True:
+        time.sleep(4)
+        with app.app_context():
+            message = '\nTemperature auto-check!\n'
+            message += json.dumps(temperature.set_temperature(), default=str)
+            message += '\n'
+        # Publish
+        mqtt.publish(topic, message)
 
 if __name__ == '__main__':
     run_socketio_app()

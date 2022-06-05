@@ -109,6 +109,9 @@ def update_feeding_schedule():
         (feeding_id,)
     ).fetchone()
 
+    if not check:
+        return jsonify({'status': 'Feeding schedule does not exist.'}), 404
+
     return jsonify({
         "status": "Feeding schedule successfully updated",
         "data": {

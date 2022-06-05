@@ -51,6 +51,7 @@ def set_parrot_type():
         ' FROM parrot_type'
         ' ORDER BY timestamp DESC'
     ).fetchone()
+
     return jsonify({
         'status': 'Parrot type successfully created',
         'data': {
@@ -105,7 +106,9 @@ def update_parrot_type():
         (parrot_type_id,)
     ).fetchone()
     if not check:
+
         return jsonify({'status': 'Parrot type not found'}), 404
+
     return jsonify({
         'status': 'Parrot type successfully updated',
         'data': {
@@ -122,7 +125,9 @@ def update_parrot_type():
 @bp.route('/parrot_type/<string:_id>', methods=['DELETE'])
 def delete_parrot_type(_id):
     if not _id:
+
         return jsonify({'status': 'parrot type id is required.'}), 403
+
 
     print(_id)
 
