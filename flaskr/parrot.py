@@ -118,7 +118,9 @@ def update_parrot():
     ).fetchone()
 
     if not check:
+
         return jsonify({'status': 'Parrot not found'}), 404
+
     return jsonify({
         'status': 'Parrot successfully updated',
         'data': {
@@ -136,8 +138,10 @@ def update_parrot():
 @bp.route('/parrot/<string:_id>', methods=['DELETE'])
 def delete_parrot(_id):
     if not _id:
+
         return jsonify({'status': 'parrot id is required.'}), 403
     print(f"parrot id is {_id}")
+
 
     db = get_db()
     db.execute(

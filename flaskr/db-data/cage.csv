@@ -1,4 +1,4 @@
-default_mode,temperature,required_temperature,total_food_quantity
+temperature,required_temperature,total_food_quantity
 proprietar,20,24,500
 pet-shop,19,24,600
 proprietar,20,22,400

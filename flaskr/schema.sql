@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS heat;
 
 CREATE TABLE cage(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  default_mode TEXT NOT NULL,
   temperature REAL NOT NULL,
   required_temperature REAL NOT NULL,
   total_food_quantity REAL NOT NULL,
@@ -25,6 +24,7 @@ CREATE TABLE facility (
   cage_id INTEGER NOT NULL,
   electricity INTEGER NOT NULL,
   movement_sensor INTEGER NOT NULL,
+  temperature_sensor INTEGER NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (cage_id) REFERENCES cage (id)
 );

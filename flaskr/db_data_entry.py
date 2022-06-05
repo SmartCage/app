@@ -10,12 +10,12 @@ def add_cages(cages_path):
     index = 1
     for line in content:
         if index > 0:
-            default_mode, total_food_quantity, temperature, required_temperature = line
+            total_food_quantity, temperature, required_temperature = line
             database = get_db()
             database.execute(
-                "INSERT INTO cage(default_mode, temperature, required_temperature,total_food_quantity) "
+                "INSERT INTO cage( temperature, required_temperature,total_food_quantity) "
                 "VALUES (?, ?, ?, ?)",
-                (default_mode, temperature, required_temperature, total_food_quantity)
+                ( temperature, required_temperature, total_food_quantity)
             )
             database.commit()
         index += 1
