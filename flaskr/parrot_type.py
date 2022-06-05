@@ -13,8 +13,8 @@ def get_parrot_type():
     ).fetchall()
     result = ""
     for row in all_parrot_types:
-        result = result + str(row['id']) + " " + str(row['name']) + "  light:" + str(row['min_light_intensity']) + "-"\
-                 + str(row['max_light_intensity']) + " food_id:" + str(row['food_id']) + " " + str(row['timestamp'])\
+        result = result + str(row['id']) + " " + str(row['name']) + "  " + str(row['food_id']) + " "\
+                 + str(row['min_light_intensity']) + " " + str(row['max_light_intensity']) + " " + str(row['timestamp'])\
                  + "\n"
     return result
 
@@ -52,7 +52,7 @@ def set_parrot_type():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Success',
+        'status': 'Parrot type successfully created',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -102,10 +102,12 @@ def update_parrot_type():
         'SELECT *'
         ' FROM parrot_type'
         ' WHERE id=?',
-        parrot_type_id
+        (parrot_type_id,)
     ).fetchone()
+    if not check:
+        return jsonify({'status': 'Parrot type not found'}), 404
     return jsonify({
-        'status': 'Success',
+        'status': 'Parrot type successfully updated',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -117,23 +119,21 @@ def update_parrot_type():
     }), 200
 
 
-@bp.route('/parrot_type', methods=['DELETE'])
-def delete_parrot_type():
-    parrot_type_id = request.form['id']
+@bp.route('/parrot_type/<string:_id>', methods=['DELETE'])
+def delete_parrot_type(_id):
+    if not _id:
+        return jsonify({'status': 'parrot type id is required.'}), 403
 
-    if not parrot_type_id:
-        return jsonify({'status': 'Please enter parrot id'}), 403
-
-    print(parrot_type_id)
+    print(_id)
 
     db = get_db()
     db.execute(
         'DELETE FROM parrot_type'
         ' WHERE id=?',
-        parrot_type_id
+        (_id,)
     )
     db.commit()
 
     return jsonify({
-        'status': 'Success',
+        'status': 'parrot type successfully deleted.',
     }), 200 

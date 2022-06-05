@@ -53,7 +53,7 @@ def set_cage():
         ' ORDER BY timestamp DESC'
     ).fetchone()
     return jsonify({
-        'status': 'Success',
+        'status': 'cage successfully recorded',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
@@ -67,8 +67,9 @@ def set_cage():
 
 @bp.route("/cage", methods=["PUT"])
 def update_cage():
-    cage_id = request.form["id"]
+    
     default_mode = request.form["mode"]
+    cage_id = request.form["id"]
     total_food_quantity = request.form["total_quant"]
     temperature = request.form ["temperature"]
     required_temperature = request.form ["required_temperature"]
@@ -103,13 +104,14 @@ def update_cage():
         'SELECT id, default_mode, total_food_quantity, temperature, required_temperature'
         ' FROM cage'
         ' WHERE id=?',
-        cage_id
+        (cage_id,)
     ).fetchone()
+    if not check:
+        return jsonify({'status':'cage does not exist'})
     return jsonify({
-        'status': 'Success',
+        'status': 'cage successfully updated',
         'data': {
             'id': check['id'],
-            'timestamp': check['timestamp'],
             'default_mode': check['default_mode'],
             'total_food_quantity': check['total_food_quantity'],
             'temperature' : check['temperature'],
@@ -118,23 +120,21 @@ def update_cage():
     }), 200
 
 
-@bp.route("/cage", methods=["DELETE"])
-def delete_food():
-    cage_id = request.form["id"]
-
-    if not cage_id:
+@bp.route("/cage/<string:_id>", methods=["DELETE"])
+def delete_cage(_id):
+    if not _id:
         return jsonify({'status': 'Please enter cage id'}), 403
-
-    print(cage_id)
+    
+    print(_id)
 
     db = get_db()
     db.execute(
         'DELETE FROM cage'
         ' WHERE id=?',
-        cage_id
+        (_id,)
     )
     db.commit()
 
     return jsonify({
-        'status': 'Success',
+        'status': 'cage successfully deleted',
     }), 200

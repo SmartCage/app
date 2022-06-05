@@ -1,0 +1,9 @@
+name,food_id,min_light_intensity,max_light_intensity
+Cacadu,4,20,30
+African Grey Parrot,2,25,30
+Macaw,1,20,30
+Parrotlet,5,30,35
+Cockatiel,3,30,40
+Senegal Parrot,6,25,40
+Parakeets,6,20,40
+Eclectus Parrots,2,20,30
