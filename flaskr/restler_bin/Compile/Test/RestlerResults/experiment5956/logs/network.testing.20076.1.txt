@@ -1,0 +1,546 @@
+
+Generation-1: Rendering Sequence-1
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 03c4a03bdbb9aaa9073c6d7d677fca0294707ee1
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:25.739: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:25.741: Re-creating connection and re-trying.
+2022-06-05 20:11:25.747: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:25.754: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-2
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 040e06314f0f6e40017c36bad32768201d10c722
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:25.825: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:25.829: Re-creating connection and re-trying.
+2022-06-05 20:11:25.837: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:25.843: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-3
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 07d95c92368978c70feaef20e1a3ef499b085138
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:25.912: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:25.919: Re-creating connection and re-trying.
+2022-06-05 20:11:25.926: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:25.933: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-4
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 0b2346cb8047c7077d571794f879bf1cd10cf33b
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.008: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.014: Re-creating connection and re-trying.
+2022-06-05 20:11:26.020: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.026: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-5
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 1af3c1d078fb7775ccb0293fb6ad8352b4fd5e3b
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.097: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.104: Re-creating connection and re-trying.
+2022-06-05 20:11:26.111: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.117: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-6
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 277d7e930914e9643ca7749a082d735785deffb9
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.390: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.396: Re-creating connection and re-trying.
+2022-06-05 20:11:26.404: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.412: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-7
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 2e0baa2ed4a60009dfc4275f5c6db927a4e2e56e
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.492: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.516: Re-creating connection and re-trying.
+2022-06-05 20:11:26.526: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.533: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-8
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 321d9bc08ef93c4f2262bf3162dfa3d7b0b0559a
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.620: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.627: Re-creating connection and re-trying.
+2022-06-05 20:11:26.635: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.641: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-9
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 3a2714a792ba0038f26fc66720fbc9111421f0da
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.715: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.722: Re-creating connection and re-trying.
+2022-06-05 20:11:26.729: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.736: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-10
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 4047716cc740ad131729cb0e3e80b5c8fba1a255
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.818: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.827: Re-creating connection and re-trying.
+2022-06-05 20:11:26.835: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.841: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-11
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 43fb0c528831af5b63f07c20bd1511a1bdec37e9
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:26.923: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.931: Re-creating connection and re-trying.
+2022-06-05 20:11:26.940: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:26.946: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-12
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 442c672662d370fe9ec8e21890614a0ade61c8cb
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.026: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.033: Re-creating connection and re-trying.
+2022-06-05 20:11:27.041: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.048: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-13
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 45f39ec6b6f8db6853d9d20149835fdf9c250f2d
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.125: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.132: Re-creating connection and re-trying.
+2022-06-05 20:11:27.142: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.149: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-14
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 5a23f735a9fd24b02f58d292b61ddd3de9e07e20
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.234: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.242: Re-creating connection and re-trying.
+2022-06-05 20:11:27.250: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.260: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-15
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 79fc496633b3ff9b5a38b76c1c50276e4d8e91de
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.361: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.373: Re-creating connection and re-trying.
+2022-06-05 20:11:27.386: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.394: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-16
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: 8e8047956dfd7b277f3b1e93e15a732f06dcabf3
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.482: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.492: Re-creating connection and re-trying.
+2022-06-05 20:11:27.500: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.509: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-17
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: a159679677756d881970f343af2a3a8aa4a0e59d
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.610: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.617: Re-creating connection and re-trying.
+2022-06-05 20:11:27.625: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.632: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-18
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: a8024dfd1b5eb1f1c8c894b07d6aa785aeefa34e
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.710: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.716: Re-creating connection and re-trying.
+2022-06-05 20:11:27.725: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.733: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-19
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: ad489600cf00f071838c6b21f5fca15852905f6e
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.813: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.823: Re-creating connection and re-trying.
+2022-06-05 20:11:27.829: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.838: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-20
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: b78d621a66d91b6033d272694c9703de97b7fb30
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:27.914: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.921: Re-creating connection and re-trying.
+2022-06-05 20:11:27.929: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:27.936: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-21
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: b822967e4573f8958b1d501d2495ae3c9eb53643
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.018: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.026: Re-creating connection and re-trying.
+2022-06-05 20:11:28.034: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.042: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-22
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: c3c4724290ab738a8e731b474aa710571b05eac5
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.132: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.139: Re-creating connection and re-trying.
+2022-06-05 20:11:28.145: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.152: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-23
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: cebd80a76380989ff958017f6987aed64831be6a
+
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.226: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.234: Re-creating connection and re-trying.
+2022-06-05 20:11:28.241: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.248: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-24
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: dabd403f8e09c1cc1b933a4e155b1a4c7e988bde
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.333: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.340: Re-creating connection and re-trying.
+2022-06-05 20:11:28.346: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.352: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-25
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: de22a5373ee0aa51fc37813c468636fcdbd16da9
+
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.426: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.433: Re-creating connection and re-trying.
+2022-06-05 20:11:28.440: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.446: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-26
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: de9744ec2e62aae6ea0074a1c7956d539a5a9285
+
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.544: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.551: Re-creating connection and re-trying.
+2022-06-05 20:11:28.558: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.564: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-27
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: e3ba966151833ce5b90745060576e4adeb5c39ea
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.636: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.643: Re-creating connection and re-trying.
+2022-06-05 20:11:28.650: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.657: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context
+
+Generation-1: Rendering Sequence-28
+
+	Request: 1 (Remaining candidate combinations: 1)
+	Request hash: e3fcf5b6bd163d9cc973060116f3a52463fc264f
+
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.728: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.735: Re-creating connection and re-trying.
+2022-06-05 20:11:28.742: Unknown error: 'Exception Creating Socket: [WinError 10049] The requested address is not valid in its context'
+2022-06-05 20:11:28.749: Failed to receive response.  Success: False, status: Creating, Response: Exception Creating Socket: [WinError 10049] The requested address is not valid in its context

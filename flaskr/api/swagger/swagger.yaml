@@ -1,0 +1,1262 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: SmartCage
+  description: 'Smart Cage app'
+  basePath: /
+
+  contact:
+    url: https://github.com/SmartCage
+servers:
+  - url: http://localhost:5000
+paths:
+  /cage:
+    get:
+      summary: Get the cages from the database
+      operationId: get_cage
+      tags:
+        - Cage
+      responses:
+        '200':
+          description: Successfully retrieved cages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CagesListResponse'
+    post:
+      summary: Add a new cage
+      operationId: set_cage
+      tags:
+        - Cage
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCage'
+      responses:
+        '200':
+          description: Cage successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CageResponse'
+        '403':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update a cage
+      operationId: update_cage
+      tags:
+        - Cage
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCage'
+      responses:
+        '200':
+          description: Cage successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CageResponse'
+        '403':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: Cage not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /cage/{id}:
+    delete:
+      summary: Delete a cage
+      operationId: delete_cage
+      tags:
+        - Cage
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Cage request Id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Cage successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: Cage couldn't be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+
+  /feeding_schedule:
+    get:
+      summary: Get the feeding schedules from the database
+      operationId: get_feeding_schedule
+      tags:
+        - Feeding schedule
+      responses:
+        '200':
+          description: Successfully retrieved feeding schedules
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedingSchedulesListResponse'
+    post:
+      summary: Add a new feeding schedule
+      operationId: set_feeding_schedule
+      tags:
+        - Feeding schedule
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewFeedingSchedule'
+      responses:
+        '200':
+          description: Feeding schedule successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedingScheduleResponse'
+        '403':
+          description: >-
+            Feeding schedule couldn't be created because the request body is
+            wrong
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update a feeding schedule
+      operationId: update_feeding_schedule
+      tags:
+        - Feeding schedule
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFeedingSchedule'
+      responses:
+        '200':
+          description: Feeding schedule successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedingScheduleResponse'
+        '403':
+          description: >-
+            Feeding schedule couldn't be updated because the request body is
+            wrong
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: Feeding schedule not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /feeding_schedule/{id}:
+    delete:
+      summary: Delete a feeding schedule
+      operationId: delete_feeding_schedule
+      tags:
+        - Feeding schedule
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Feeding schedule request Id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Feeding schedule successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: invalid id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /parrot:
+    get:
+      summary: Get the parrots from the database
+      operationId: get_parrot
+      tags:
+        - Parrot
+      responses:
+        '200':
+          description: Successfully retrieved parrots
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParrotListResponse'
+    post:
+      summary: Add a new parrot
+      operationId: set_parrot
+      tags:
+        - Parrot
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewParrot'
+      responses:
+        '200':
+          description: Parrot successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParrotResponse'
+        '403':
+          description: invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update a parrot
+      operationId: update_parrot
+      tags:
+        - Parrot
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateParrot'
+      responses:
+        '200':
+          description: Parrot successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParrotResponse'
+        '403':
+          description: invalid parameter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: parrot not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /parrot/{id}:
+    delete:
+      summary: Delete a parrot
+      operationId: delete_parrot
+      tags:
+        - Parrot
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Parrot request Id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Parrot successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: invalid parameter
+
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /parrot_type:
+    get:
+      summary: Get parrot type from the database
+      operationId: get_parrot_type
+      tags:
+        - Parrot type
+      responses:
+        '200':
+          description: Successfully retrieved parrot types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParrotTypesListResponse'
+    post:
+      summary: Add a new parrot type
+      operationId: set_parrot_type
+      tags:
+        - Parrot type
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewParrotType'
+      responses:
+        '200':
+          description: Parrot type successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParrotTypeResponse'
+        '403':
+          description: invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update a parrot type
+      operationId: update_parrot_type
+      tags:
+        - Parrot type
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateParrotType'
+      responses:
+        '200':
+          description: Parrot type successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParrotTypeResponse'
+        '403':
+          description: invalid parameters;
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: Parrot type not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /parrot_type/{id}:
+    delete:
+      summary: Delete parrot type
+      operationId: delete_parrot_type
+      tags:
+        - Parrot type
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Parrot type request Id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Parrot type successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /food:
+    get:
+      summary: Get food from the database
+      operationId: get_food
+      tags:
+        - Food
+      responses:
+        '200':
+          description: Successfully retrieved food
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodListResponse'
+    post:
+      summary: Add new food
+      operationId: set_food
+      tags:
+        - Food
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewFood'
+      responses:
+        '200':
+          description: Food successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodResponse'
+        '403':
+          description: invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update food
+      operationId: update_food
+      tags:
+        - Food
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFood'
+      responses:
+        '200':
+          description: Food successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoodResponse'
+        '403':
+          description: Food couldn't be updated because of invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: Food not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /food/{id}:
+    delete:
+      summary: Delete food
+      operationId: delete_food
+      tags:
+        - Food
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Food request Id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Food successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: Food couldn't be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /light:
+    get:
+      summary: Get light from the database
+      operationId: get_light
+      tags:
+        - Light
+      responses:
+        '200':
+          description: Successfully retrieved light
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LightListResponse'
+    post:
+      summary: Add new light
+      operationId: set_light
+      tags:
+        - Light
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewLight'
+      responses:
+        '200':
+          description: Light successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LightResponse'
+        '403':
+          description: Light couldn't be created because of invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update light
+      operationId: update_light
+      tags:
+        - Light
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateLight'
+      responses:
+        '200':
+          description: Light successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LightResponse'
+        '403':
+          description: Light couldn't be updated because of invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: Light not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /light/{id}:
+    delete:
+      summary: Delete light
+      operationId: delete_light
+      tags:
+        - Light
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Light request id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Light successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: Light couldn't be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+
+  /heat:
+    get:
+      summary: Get heat from the database
+      operationId: get_heat
+      tags:
+        - Heat
+      responses:
+        '200':
+          description: Successfully retrieved heat
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HeatListResponse'
+    post:
+      summary: Add new heat
+      operationId: set_heat
+      tags:
+        - Heat
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewHeat'
+      responses:
+        '200':
+          description: Heat successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HeatResponse'
+        '403':
+          description: Heat couldn't be created because of invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    put:
+      summary: Update heat
+      operationId: update_heat
+      tags:
+        - Heat
+      requestBody:
+        description: ''
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateHeat'
+      responses:
+        '200':
+          description: Heat successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HeatResponse'
+        '403':
+          description: Heat couldn't be updated because of invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '404':
+          description: Heat not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /heat/{id}:
+    delete:
+      summary: Delete heat
+      operationId: delete_heat
+      tags:
+        - Heat
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Heat request id
+          schema:
+            $ref: '#/components/schemas/id'
+      responses:
+        '200':
+          description: Heatt successfully deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '403':
+          description: Heat couldn't be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+
+components:
+  schemas:
+    id:
+      properties:
+        uuid:
+          type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+    CagesListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              default_mode:
+                type: string
+              total_food_quantity:
+                type: number
+              temperature:
+                type: number
+              required_temperature:
+                type: number
+              timestamp:
+                type: string
+    NewCage:
+      type: object
+      properties:
+        mode:
+          type: string
+        total_quant:
+          type: number
+        temperature:
+          type: number
+        required_temperature:
+          type: number
+    UpdateCage:
+      type: object
+      properties:
+        id:
+          type: integer
+        mode:
+          type: string
+        total_quant:
+          type: number
+        temperature:
+          type: number
+        required_temperature:
+          type: number
+    CageResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            default_mode:
+              type: string
+            total_food_quantity:
+              type: number
+            temperature:
+              type: number
+            required_temperature:
+              type: number
+            timestamp:
+              type: string
+    FeedingSchedulesListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              cage_id:
+                type: integer
+              food_name_id:
+                type: integer
+              schedule:
+                type: string
+              available_type_quantiy:
+                type: number
+              timestamp:
+                type: string
+    NewFeedingSchedule:
+      type: object
+      properties:
+        cage_id:
+          type: integer
+        food_name_id:
+          type: integer
+        schedule:
+          type: string
+        available_type_quantiy:
+          type: number
+    UpdateFeedingSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+        cage_id:
+          type: integer
+        food_name_id:
+          type: integer
+        schedule:
+          type: string
+        available_type_quantiy:
+          type: number
+    FeedingScheduleResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        cage_id:
+          type: integer
+        food_name_id:
+          type: integer
+        schedule:
+          type: string
+        available_type_quantiy:
+          type: number
+        timestamp:
+          type: string
+    ParrotListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              type_id:
+                type: integer
+              cage_id:
+                type: integer
+              name:
+                type: string
+              health:
+                type: integer
+              birthday:
+                type: string
+              timestamp:
+                type: string
+    NewParrot:
+      type: object
+      properties:
+        type_id:
+          type: integer
+        cage_id:
+          type: integer
+        name:
+          type: string
+        health:
+          type: integer
+        birthday:
+          type: string
+    UpdateParrot:
+      type: object
+      properties:
+        id:
+          type: integer
+        type_id:
+          type: integer
+        cage_id:
+          type: integer
+        name:
+          type: string
+        health:
+          type: integer
+        birthday:
+          type: string
+    ParrotResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        type_id:
+          type: integer
+        cage_id:
+          type: integer
+        name:
+          type: string
+        health:
+          type: integer
+        birthday:
+          type: string
+        timestamp:
+          type: string
+    ParrotTypesListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              food_id:
+                type: integer
+              min_light_intensity:
+                type: number
+              max_light_intensity:
+                type: number
+              timestamp:
+                type: string
+    NewParrotType:
+      type: object
+      properties:
+        name:
+          type: string
+        food_id:
+          type: integer
+        min_light_intensity:
+          type: number
+        max_light_intensity:
+          type: number
+    UpdateParrotType:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        food_id:
+          type: integer
+        min_light_intensity:
+          type: number
+        max_light_intensity:
+          type: number
+    ParrotTypeResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        food_id:
+          type: integer
+        min_light_intensity:
+          type: number
+        max_light_intensity:
+          type: number
+        timestamp:
+          type: string
+    FoodListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              quantity:
+                type: number
+              timestamp:
+                type: string
+    NewFood:
+      type: object
+      properties:
+        name:
+          type: string
+        quantity:
+          type: number
+    UpdateFood:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        quantity:
+          type: number
+    FoodResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        quantity:
+          type: number
+        timestamp:
+          type: string
+    LightListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              cage_id:
+                type: integer
+              intensity:
+                type: number
+              start:
+                type: string
+              end:
+                type: string
+              timestamp:
+                type: string
+    NewLight:
+      type: object
+      properties:
+        cage_id:
+          type: integer
+        intensity:
+          type: number
+        start:
+          type: string
+        end:
+          type: string
+    UpdateLight:
+      type: object
+      properties:
+        id:
+          type: integer
+        cage_id:
+          type: integer
+        intensity:
+          type: number
+        start:
+          type: string
+        end:
+          type: string
+    LightResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        cage_id:
+          type: integer
+        intensity:
+          type: number
+        start:
+          type: string
+        end:
+          type: string
+        timestamp:
+          type: string
+
+    HeatListResponse:
+      type: array
+      items:
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: integer
+              cage_id:
+                type: integer
+              intensity:
+                type: number
+              max_heat:
+                type: string
+              timestamp:
+                type: string
+    NewHeat:
+      type: object
+      properties:
+        cage_id:
+          type: integer
+        intensity:
+          type: number
+        max_heat:
+          type: string
+    UpdateHeat:
+      type: object
+      properties:
+        id:
+          type: integer
+        cage_id:
+          type: integer
+        intensity:
+          type: number
+        max_heat:
+          type: string
+    HeatResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        cage_id:
+          type: integer
+        intensity:
+          type: number
+        max_heat:
+          type: string
+        timestamp:
+          type: string
+
+  responses:
+    SuccessfullyCagesRetrieval:
+      description: Successfully retrieved the cages
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CagesListResponse'
+    SuccessfullyCageCreation:
+      description: Cage successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CageResponse'
+    SuccessfullyCageUpdate:
+      description: Cage successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CageResponse'
+    SuccessfullyCageDelete:
+      description: Cage successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'
+    SuccessfullyFeedingSchedulesRetrieval:
+      description: Successfully retrieved the feeding schedules
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FeedingSchedulesListResponse'
+    SuccessfullyFeedingScheduleCreation:
+      description: Feeding schedule successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FeedingScheduleResponse'
+    SuccessfullyFeedingScheduleUpdate:
+      description: Feeding schedule successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FeedingScheduleResponse'
+    SuccessfullyFeedingScheduleDelete:
+      description: Feeding schedule successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'
+    SuccessfullyParrotRetrieval:
+      description: Successfully retrieved the parrot
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ParrotListResponse'
+    SuccessfullyParrotCreation:
+      description: Parrot successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ParrotResponse'
+    SuccessfullyParrotUpdate:
+      description: Parrot successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ParrotResponse'
+    SuccessfullyParrotDelete:
+      description: Parrot successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'
+    SuccessfullyParrotTypesRetrieval:
+      description: Successfully retrieved parrot types
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ParrotTypesListResponse'
+    SuccessfullyParrotTypeCreation:
+      description: Parrot type successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ParrotTypeResponse'
+    SuccessfullyParrotTypeUpdate:
+      description: Parrot type successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ParrotTypeResponse'
+    SuccessfullyParrotTypeDelete:
+      description: Parrot type successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'
+    SuccessfullyFoodRetrieval:
+      description: Successfully retrieved food
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoodListResponse'
+    SuccessfullyFoodCreation:
+      description: Food successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoodResponse'
+    SuccessfullyFoodUpdate:
+      description: Food successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoodResponse'
+    SuccessfullyFoodDelete:
+      description: Food successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'
+    SuccessfullyLightRetrieval:
+      description: Successfully retrieved light
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LightListResponse'
+    SuccessfullyLightCreation:
+      description: Light successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LightResponse'
+    SuccessfullyLightUpdate:
+      description: Light successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LightResponse'
+    SuccessfullyLightDelete:
+      description: Light successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'
+    SuccessfullyHeatRetrieval:
+      description: Successfully retrieved Heat
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HeatListResponse'
+    SuccessfullyHeatCreation:
+      description: Heat successfully created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HeatResponse'
+    SuccessfullyHeatUpdate:
+      description: Heat successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HeatResponse'
+    SuccessfullyHeatDelete:
+      description: Heat successfully deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StatusResponse'

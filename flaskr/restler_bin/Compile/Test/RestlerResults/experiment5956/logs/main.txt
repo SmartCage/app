@@ -1,0 +1,525 @@
+Setting fuzzing schemes: directed-smoke-test
+2022-06-05 20:11:25.699: Going to fuzz a set with 28 requests
+2022-06-05 20:11:25.699: Request-0: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-1: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-2: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-3: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-4: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-5: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-6: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-7: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-8: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-9: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-10: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-11: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-12: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-13: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-14: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-15: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-16: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-17: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-18: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-19: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-20: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-21: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-22: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-23: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-24: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-25: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-26: Value Combinations: 1
+2022-06-05 20:11:25.699: Request-27: Value Combinations: 1
+2022-06-05 20:11:25.699: Avg. Value Combinations per Request: 1
+2022-06-05 20:11:25.699: Median Value Combinations per Request: 1.0
+2022-06-05 20:11:25.699: Min Value Combinations per Request: 1
+2022-06-05 20:11:25.699: Max Value Combinations per Request: 1
+2022-06-05 20:11:25.699: Total dependencies: 0
+
+2022-06-05 20:11:25.711: Generation: 1 / Sequences Collection Size: 28 
+(After directed-smoke-test Extend)
+
+Rendering request 0 from scratch
+
+2022-06-05 20:11:25.760: Request 0
+2022-06-05 20:11:25.760: Endpoint - /light
+2022-06-05 20:11:25.760: Hex Def - 03c4a03bdbb9aaa9073c6d7d677fca0294707ee1
+2022-06-05 20:11:25.760: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:25.766: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 1 from scratch
+
+2022-06-05 20:11:25.851: Request 1
+2022-06-05 20:11:25.851: Endpoint - /food/{id}
+2022-06-05 20:11:25.851: Hex Def - 040e06314f0f6e40017c36bad32768201d10c722
+2022-06-05 20:11:25.851: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:25.856: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 2 from scratch
+
+2022-06-05 20:11:25.942: Request 2
+2022-06-05 20:11:25.942: Endpoint - /cage
+2022-06-05 20:11:25.942: Hex Def - 07d95c92368978c70feaef20e1a3ef499b085138
+2022-06-05 20:11:25.942: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:25.948: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 3 from scratch
+
+2022-06-05 20:11:26.038: Request 3
+2022-06-05 20:11:26.038: Endpoint - /food
+2022-06-05 20:11:26.038: Hex Def - 0b2346cb8047c7077d571794f879bf1cd10cf33b
+2022-06-05 20:11:26.038: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.043: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 4 from scratch
+
+2022-06-05 20:11:26.130: Request 4
+2022-06-05 20:11:26.130: Endpoint - /parrot_type
+2022-06-05 20:11:26.130: Hex Def - 1af3c1d078fb7775ccb0293fb6ad8352b4fd5e3b
+2022-06-05 20:11:26.130: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.135: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 5 from scratch
+
+2022-06-05 20:11:26.425: Request 5
+2022-06-05 20:11:26.425: Endpoint - /feeding_schedule
+2022-06-05 20:11:26.425: Hex Def - 277d7e930914e9643ca7749a082d735785deffb9
+2022-06-05 20:11:26.425: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.431: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 6 from scratch
+
+2022-06-05 20:11:26.546: Request 6
+2022-06-05 20:11:26.546: Endpoint - /parrot_type
+2022-06-05 20:11:26.546: Hex Def - 2e0baa2ed4a60009dfc4275f5c6db927a4e2e56e
+2022-06-05 20:11:26.546: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.552: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 7 from scratch
+
+2022-06-05 20:11:26.650: Request 7
+2022-06-05 20:11:26.650: Endpoint - /cage
+2022-06-05 20:11:26.650: Hex Def - 321d9bc08ef93c4f2262bf3162dfa3d7b0b0559a
+2022-06-05 20:11:26.650: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.656: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 8 from scratch
+
+2022-06-05 20:11:26.751: Request 8
+2022-06-05 20:11:26.751: Endpoint - /feeding_schedule
+2022-06-05 20:11:26.751: Hex Def - 3a2714a792ba0038f26fc66720fbc9111421f0da
+2022-06-05 20:11:26.751: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.757: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 9 from scratch
+
+2022-06-05 20:11:26.854: Request 9
+2022-06-05 20:11:26.854: Endpoint - /food
+2022-06-05 20:11:26.854: Hex Def - 4047716cc740ad131729cb0e3e80b5c8fba1a255
+2022-06-05 20:11:26.854: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.860: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 10 from scratch
+
+2022-06-05 20:11:26.962: Request 10
+2022-06-05 20:11:26.962: Endpoint - /parrot
+2022-06-05 20:11:26.962: Hex Def - 43fb0c528831af5b63f07c20bd1511a1bdec37e9
+2022-06-05 20:11:26.962: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:26.968: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 11 from scratch
+
+2022-06-05 20:11:27.061: Request 11
+2022-06-05 20:11:27.061: Endpoint - /parrot
+2022-06-05 20:11:27.061: Hex Def - 442c672662d370fe9ec8e21890614a0ade61c8cb
+2022-06-05 20:11:27.061: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.068: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 12 from scratch
+
+2022-06-05 20:11:27.163: Request 12
+2022-06-05 20:11:27.163: Endpoint - /cage/{id}
+2022-06-05 20:11:27.163: Hex Def - 45f39ec6b6f8db6853d9d20149835fdf9c250f2d
+2022-06-05 20:11:27.163: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.169: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 13 from scratch
+
+2022-06-05 20:11:27.278: Request 13
+2022-06-05 20:11:27.278: Endpoint - /heat
+2022-06-05 20:11:27.278: Hex Def - 5a23f735a9fd24b02f58d292b61ddd3de9e07e20
+2022-06-05 20:11:27.278: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.285: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 14 from scratch
+
+2022-06-05 20:11:27.408: Request 14
+2022-06-05 20:11:27.408: Endpoint - /parrot_type
+2022-06-05 20:11:27.408: Hex Def - 79fc496633b3ff9b5a38b76c1c50276e4d8e91de
+2022-06-05 20:11:27.408: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.413: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 15 from scratch
+
+2022-06-05 20:11:27.524: Request 15
+2022-06-05 20:11:27.524: Endpoint - /parrot_type/{id}
+2022-06-05 20:11:27.524: Hex Def - 8e8047956dfd7b277f3b1e93e15a732f06dcabf3
+2022-06-05 20:11:27.524: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.529: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot_type'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 16 from scratch
+
+2022-06-05 20:11:27.644: Request 16
+2022-06-05 20:11:27.644: Endpoint - /food
+2022-06-05 20:11:27.644: Hex Def - a159679677756d881970f343af2a3a8aa4a0e59d
+2022-06-05 20:11:27.644: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.650: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'food'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 17 from scratch
+
+2022-06-05 20:11:27.749: Request 17
+2022-06-05 20:11:27.749: Endpoint - /parrot
+2022-06-05 20:11:27.749: Hex Def - a8024dfd1b5eb1f1c8c894b07d6aa785aeefa34e
+2022-06-05 20:11:27.749: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.756: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 18 from scratch
+
+2022-06-05 20:11:27.852: Request 18
+2022-06-05 20:11:27.852: Endpoint - /feeding_schedule/{id}
+2022-06-05 20:11:27.852: Hex Def - ad489600cf00f071838c6b21f5fca15852905f6e
+2022-06-05 20:11:27.852: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.858: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 19 from scratch
+
+2022-06-05 20:11:27.950: Request 19
+2022-06-05 20:11:27.950: Endpoint - /light
+2022-06-05 20:11:27.950: Hex Def - b78d621a66d91b6033d272694c9703de97b7fb30
+2022-06-05 20:11:27.950: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:27.956: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 20 from scratch
+
+2022-06-05 20:11:28.057: Request 20
+2022-06-05 20:11:28.057: Endpoint - /cage
+2022-06-05 20:11:28.057: Hex Def - b822967e4573f8958b1d501d2495ae3c9eb53643
+2022-06-05 20:11:28.057: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.061: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'cage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 21 from scratch
+
+2022-06-05 20:11:28.165: Request 21
+2022-06-05 20:11:28.165: Endpoint - /heat
+2022-06-05 20:11:28.165: Hex Def - c3c4724290ab738a8e731b474aa710571b05eac5
+2022-06-05 20:11:28.165: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.171: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 22 from scratch
+
+2022-06-05 20:11:28.266: Request 22
+2022-06-05 20:11:28.266: Endpoint - /feeding_schedule
+2022-06-05 20:11:28.266: Hex Def - cebd80a76380989ff958017f6987aed64831be6a
+2022-06-05 20:11:28.266: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.273: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'feeding_schedule'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 23 from scratch
+
+2022-06-05 20:11:28.365: Request 23
+2022-06-05 20:11:28.365: Endpoint - /parrot/{id}
+2022-06-05 20:11:28.365: Hex Def - dabd403f8e09c1cc1b933a4e155b1a4c7e988bde
+2022-06-05 20:11:28.365: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.371: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'parrot'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 24 from scratch
+
+2022-06-05 20:11:28.459: Request 24
+2022-06-05 20:11:28.459: Endpoint - /light
+2022-06-05 20:11:28.459: Hex Def - de22a5373ee0aa51fc37813c468636fcdbd16da9
+2022-06-05 20:11:28.459: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.463: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 25 from scratch
+
+2022-06-05 20:11:28.576: Request 25
+2022-06-05 20:11:28.576: Endpoint - /heat
+2022-06-05 20:11:28.576: Hex Def - de9744ec2e62aae6ea0074a1c7956d539a5a9285
+2022-06-05 20:11:28.576: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.582: Rendering INVALID
+		- restler_static_string: 'PUT '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 26 from scratch
+
+2022-06-05 20:11:28.669: Request 26
+2022-06-05 20:11:28.669: Endpoint - /heat/{id}
+2022-06-05 20:11:28.669: Hex Def - e3ba966151833ce5b90745060576e4adeb5c39ea
+2022-06-05 20:11:28.669: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.675: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'heat'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 27 from scratch
+
+2022-06-05 20:11:28.760: Request 27
+2022-06-05 20:11:28.760: Endpoint - /light/{id}
+2022-06-05 20:11:28.760: Hex Def - e3fcf5b6bd163d9cc973060116f3a52463fc264f
+2022-06-05 20:11:28.761: Sequence length that satisfies dependencies: 1
+2022-06-05 20:11:28.766: Rendering INVALID
+		- restler_static_string: 'DELETE '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'light'
+		- restler_static_string: '/'
+		- restler_fuzzable_object: '{ "fuzz": false }'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: \r\n'
+		- restler_static_string: '\r\n'
+
+2022-06-05 20:11:28.781: Generation: 1 / Sequences Collection Size: 0 
+(After directed-smoke-test Render)
+
+2022-06-05 20:11:28.788: Final Swagger spec coverage: 0 / 28
+2022-06-05 20:11:28.788: Rendered requests: 0 / 28
+2022-06-05 20:11:28.788: Rendered requests with "valid" status codes: 0 / 0
+2022-06-05 20:11:28.788: Num fully valid requests (no resource creation failures): 0
+2022-06-05 20:11:28.788: Num requests not rendered due to invalid sequence re-renders: 0
+2022-06-05 20:11:28.788: Num invalid requests caused by failed resource creations: 0
+2022-06-05 20:11:28.788: Total Creations of Dyn Objects: 0
+2022-06-05 20:11:28.788: Total Requests Sent: {'gc': 0, 'main_driver': 0}
+2022-06-05 20:11:28.788: Bug Buckets: {}
+
+Testing completed -- below are the final stats:
+
+2022-06-05 20:11:28.811: Final Swagger spec coverage: 0 / 28
+2022-06-05 20:11:28.811: Rendered requests: 0 / 28
+2022-06-05 20:11:28.811: Rendered requests with "valid" status codes: 0 / 0
+2022-06-05 20:11:28.811: Num fully valid requests (no resource creation failures): 0
+2022-06-05 20:11:28.811: Num requests not rendered due to invalid sequence re-renders: 0
+2022-06-05 20:11:28.811: Num invalid requests caused by failed resource creations: 0
+2022-06-05 20:11:28.811: Total Creations of Dyn Objects: 0
+2022-06-05 20:11:28.811: Total Requests Sent: {'gc': 0, 'main_driver': 0}
+2022-06-05 20:11:28.811: Bug Buckets: {}

@@ -1,0 +1,28 @@
+Restler Information: 0 : Starting task Test...
+    DateTime=2022-06-05T17:11:25.2204180Z
+Restler Information: 0 : Launching 'python.exe --version'
+    DateTime=2022-06-05T17:11:25.3242749Z
+Restler Information: 0 : Process execution terminated in 00:00:00.0233047 with exit code 0x0: 'python.exe --version'
+    DateTime=2022-06-05T17:11:25.3582449Z
+Restler Information: 0 : (14008) python.exe --version exited with code: 0
+    DateTime=2022-06-05T17:11:25.3644474Z
+Restler Information: 0 : Launching 'python.exe -B "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\restler\../engine/restler.py" --restler_grammar "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\grammar.py" --custom_mutations "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\dict.json" --set_version 8.5.0    --no_ssl   --settings "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\engine_settings.json"     --include_user_agent --no_tokens_in_logs t --garbage_collection_interval 30 --fuzzing_mode directed-smoke-test'
+    DateTime=2022-06-05T17:11:25.3790491Z
+Restler Information: 0 : Process execution terminated in 00:00:03.4573074 with exit code 0x0: 'python.exe -B "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\restler\../engine/restler.py" --restler_grammar "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\grammar.py" --custom_mutations "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\dict.json" --set_version 8.5.0    --no_ssl   --settings "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\engine_settings.json"     --include_user_agent --no_tokens_in_logs t --garbage_collection_interval 30 --fuzzing_mode directed-smoke-test'
+    DateTime=2022-06-05T17:11:28.8365682Z
+Restler Information: 0 : (5956) python.exe -B "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\restler\../engine/restler.py" --restler_grammar "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\grammar.py" --custom_mutations "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\dict.json" --set_version 8.5.0    --no_ssl   --settings "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\engine_settings.json"     --include_user_agent --no_tokens_in_logs t --garbage_collection_interval 30 --fuzzing_mode directed-smoke-test exited with code: 0
+    DateTime=2022-06-05T17:11:28.8367245Z
+Restler Information: 0 : Launching 'dotnet "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\restler\../resultsAnalyzer/Restler.ResultsAnalyzer.dll" analyze "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\Test" --output_dir "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\Test\ResponseBuckets" --dictionary_file "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\dict.json" --max_instances_per_bucket 10'
+    DateTime=2022-06-05T17:11:28.8447096Z
+Restler Information: 0 : Process execution terminated in 00:00:00.4637414 with exit code 0x0: 'dotnet "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\restler\../resultsAnalyzer/Restler.ResultsAnalyzer.dll" analyze "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\Test" --output_dir "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\Test\ResponseBuckets" --dictionary_file "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\dict.json" --max_instances_per_bucket 10'
+    DateTime=2022-06-05T17:11:29.3085706Z
+Restler Information: 0 : (14824) dotnet "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\restler\../resultsAnalyzer/Restler.ResultsAnalyzer.dll" analyze "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\Test" --output_dir "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\Test\ResponseBuckets" --dictionary_file "P:\Coding\SmartCageInginerie\SmartCage\flaskr\restler_bin\Compile\dict.json" --max_instances_per_bucket 10 exited with code: 0
+    DateTime=2022-06-05T17:11:29.3088329Z
+Restler Information: 0 : Request coverage (successful / total): 0 / 28
+    DateTime=2022-06-05T17:11:29.4961388Z
+Restler Information: 0 : No bugs were found.
+    DateTime=2022-06-05T17:11:29.5011658Z
+Restler Information: 0 : Task Test succeeded.
+    DateTime=2022-06-05T17:11:29.5097457Z
+Restler Information: 0 : Collecting logs...
+    DateTime=2022-06-05T17:11:29.5153496Z
