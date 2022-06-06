@@ -12,11 +12,12 @@ def get_parrot():
         ' FROM parrot'
         ' ORDER BY timestamp DESC'
     ).fetchall()
+
     result = ""
-    for row in all_parrot:
-        result = result + str(row['id']) + " " + str(row['type_id']) + " " \
-        + str(row['cage_id']) + " " + str(row['name']) + " " + str(row['health']) \
-        + " " + str(row['birthday']) + " " + str(row['timestamp']) + "\n"
+    for p in all_parrot:
+        result = result +" Id: " + str(p['id']) + " Name: " + str(p['name']) + " Health: " + str(p['health']) \
+        + " Birthday: " + str(p['birthday']) + " Type Id: " + str(p['type_id']) + " Cage Id: "+ str(p['cage_id']) \
+        + " Timestamp: " + str(p['timestamp']) + "\n"
     return result
 
 

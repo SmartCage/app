@@ -8,13 +8,13 @@ bp = Blueprint('food', __name__)
 @bp.route('/food', methods=['GET'])
 def get_food():
     all_foods = get_db().execute(
-        'SELECT id, timestamp, name, quantity'
+        'SELECT id, timestamp, name_food, quantity'
         ' FROM food'
         ' ORDER BY timestamp DESC'
     ).fetchall()
     result = ""
     for row in all_foods:
-        result = result + str(row['id']) + " " + str(row['name']) + " " + str(row['quantity'])\
+        result = result + str(row['id']) + " " + str(row['name_food']) + " " + str(row['quantity'])\
                  + " " + str(row['timestamp']) + "\n"
     return result
 
@@ -32,13 +32,14 @@ def set_food():
     print(quantity)
     db = get_db()
     db.execute(
-        'INSERT INTO food (name, quantity)'
+        'INSERT INTO food (name_food, quantity)'
         ' VALUES (?, ?)',
         (food_name, quantity)
     )
     db.commit()
+
     check = get_db().execute(
-        'SELECT id, timestamp, name, quantity'
+        'SELECT id, timestamp, name_food, quantity'
         ' FROM food'
         ' ORDER BY timestamp DESC'
     ).fetchone()
@@ -47,7 +48,7 @@ def set_food():
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
-            'name': check['name'],
+            'name_food': check['name_food'],
             'quantity': check['quantity']
          }
          }), 200
@@ -94,14 +95,14 @@ def update_food():
     db = get_db()
     db.execute(
         'UPDATE food'
-        ' SET name=?, quantity=?, timestamp=CURRENT_TIMESTAMP'
+        ' SET name_food=?, quantity=?, timestamp=CURRENT_TIMESTAMP'
         ' WHERE id=?',
         (food_name, quantity, food_id)
     )
     db.commit()
 
     check = get_db().execute(
-        'SELECT id, timestamp, name, quantity'
+        'SELECT id, timestamp, name_food, quantity'
         ' FROM food'
         ' WHERE id=?',
         (food_id,)
@@ -115,7 +116,7 @@ def update_food():
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],
-            'name': check['name'],
+            'name_food': check['name_food'],
             'quantity': check['quantity']
         }
     }), 200

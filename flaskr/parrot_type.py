@@ -13,9 +13,9 @@ def get_parrot_type():
     ).fetchall()
     result = ""
     for row in all_parrot_types:
-        result = result + str(row['id']) + " " + str(row['name']) + "  " + str(row['food_id']) + " "\
-                 + str(row['min_light_intensity']) + " " + str(row['max_light_intensity']) + " " + str(row['timestamp'])\
-                 + "\n"
+        result = result + " Id: " + str(row['id']) + " Name: " + str(row['name']) + "  Food id: " + str(row['food_id']) + " " \
+                 + " Minim light: "+ str(row['min_light_intensity']) + "Maxim light: " + str(row['max_light_intensity']) + " " \
+                 + " timestamp: " + str(row['timestamp']) + "\n"
     return result
 
 @bp.route('/parrot_type', methods=['POST'])
@@ -47,7 +47,7 @@ def set_parrot_type():
     db.commit()
 
     check = get_db().execute(
-        'SELECT id, name, food_id, min_light_intensity, max_light_intensity, timestamp'
+        ' SELECT id, name, food_id, min_light_intensity, max_light_intensity, timestamp'
         ' FROM parrot_type'
         ' ORDER BY timestamp DESC'
     ).fetchone()
@@ -105,6 +105,7 @@ def update_parrot_type():
         ' WHERE id=?',
         (parrot_type_id,)
     ).fetchone()
+    
     if not check:
 
         return jsonify({'status': 'Parrot type not found'}), 404

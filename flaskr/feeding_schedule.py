@@ -14,8 +14,11 @@ def get_feeding_schedule():
     ).fetchall()
 
     result = ""
-    for row in all_feeding_schedules:
-        result =result + str(row["id"]) + " " + str(row["cage_id"])+ " " + str(row["food_name_id"])+ " " + str(row["schedule"])+ " " + str(row["available_type_quantity"]) + " " + str(row['timestamp']) + "\n"
+    for i in all_feeding_schedules:
+        fields = [str(i["id"]), f"cage={str(i['cage_id'])}", f"food_name={str(i['food_nameid'])}",
+                  f"schedule={str(i['schedule'])}", f"available_type_quantity={str(i['available_type_quantity'])}",
+                  str(i["timestamp"])]
+        result += " ".join(fields)
 
     return result
 
@@ -28,7 +31,7 @@ def set_feeding_schedule():
     available_type_quantity = request.form["available_type_quantity"]
 
     if not cage_id:
-        return jsonify({"status": "cage is required."}), 403
+        return jsonify({"status": "Cage is required."}), 403
     elif not food_name_id:
         return jsonify({"status": "Food type is required."}), 403
     elif not schedule:
@@ -79,9 +82,9 @@ def update_feeding_schedule():
     if not feeding_id:
         return jsonify({"status": "Feeding schedule id is required."}), 403
     elif not cage_id:
-        return jsonify({"status": "cage is required."}), 403
+        return jsonify({"status": "Cage is required."}), 403
     elif not food_name_id:
-        return jsonify({"status": "Food type is required."}), 403
+        return jsonify({"status": "Food name is required."}), 403
     elif not schedule:
         return jsonify({"status": "Schedule is required."}), 403
     elif not available_type_quantity:

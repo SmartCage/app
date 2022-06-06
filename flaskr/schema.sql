@@ -15,6 +15,7 @@ CREATE TABLE cage(
   temperature REAL NOT NULL,
   required_temperature REAL NOT NULL,
   total_food_quantity REAL NOT NULL,
+  mode TEXT NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -31,7 +32,7 @@ CREATE TABLE facility (
 
 CREATE TABLE food (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
+  name_food TEXT NOT NULL,
   quantity REAL NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -41,11 +42,13 @@ CREATE TABLE light (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   cage_id INTEGER NOT NULL,
   intensity REAL NOT NULL,
-  start TEXT NOT NULL,
-  end TEXT NOT NULL,
+  start_light TEXT NOT NULL,
+  end_light TEXT NOT NULL,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (cage_id) REFERENCES cage (id)
 );
+
+
 CREATE TABLE heat (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   cage_id INTEGER NOT NULL,

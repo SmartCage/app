@@ -43,12 +43,14 @@ def set_facility():
                (cage_id, electricity, movement_sensor, temperature_sensor)
                )
     db.commit()
+
     check = get_db().execute(
-        'SELECT id, cage_id, electricity, movement_sensor, temperature_sensor'
+        'SELECT id, cage_id, electricity, movement_sensor, temperature_sensor, '
         'timestamp '
         ' FROM facility'
         ' ORDER BY timestamp DESC'
     ).fetchone()
+
     return jsonify({
         'status': 'New facility list successfully recorded',
         'data': {
@@ -60,13 +62,18 @@ def set_facility():
             'temperature_sensor': check['temperature_sensor']
         }
     }), 200
+
+
 @bp.route('/facility', methods=['PUT'])
 def update_facility():
+
     electricity = request.form['electricity']
     movement_sensor = request.form['movement_sensor']
     temperature_sensor = request.form['temperature_sensor']
     cage_id = request.form['cage_id']
     facility_id = request.form['id']
+
+
     if not facility_id:
         return jsonify({'status': 'Facility id is required.'}), 403
     elif not electricity:
@@ -77,10 +84,12 @@ def update_facility():
         return jsonify({'status: Temperature sensor status is required.'}), 403
     elif not cage_id:
         return jsonify({'status: cage_id is required.'}), 403
+
     print(f"electricity status is {electricity}")
     print(f"movement_sensor status is {movement_sensor}")
     print(f"temperature_sensor status is {temperature_sensor}")
     print(f"cage_id is {cage_id}")
+
     db = get_db()
     db.execute('UPDATE facility'
                ' SET electricity=?, movement_sensor=?, temperature_sensor=?, '
@@ -89,6 +98,7 @@ def update_facility():
                (electricity, movement_sensor, temperature_sensor, cage_id, facility_id)
                )
     db.commit()
+
     check = get_db().execute(
         'SELECT *'
         ' FROM facility'
@@ -97,8 +107,11 @@ def update_facility():
         (facility_id,)
     ).fetchone()
 
+    if not check:
+        return  jsonify({'statu': 'List does not exist. '}), 404
+
     return jsonify({
-        'status': 'Facility list successfully updated',
+        'status': 'Facility list was updated',
         'data': {
             'id': check['id'],
             'timestamp': check['timestamp'],

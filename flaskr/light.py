@@ -13,8 +13,8 @@ def get_light():
     ).fetchall()
     result = ""
     for row in all_lights:
-        result = result + str(row['id']) + " " + str(row['color']) + "  intensity:" + str(row['intensity']) \
-                 + "  schedule:" + str(row['schedule']) + "  cage_id:" + str(row['cage_id']) + "  " + \
+        result = result + str(row['id']) + " " + "  intensity:" + str(row['intensity']) \
+                 + "  start_ligt:" + str(row['start_light']) + "  end_ligt:" + str(row['end_light']) + "  cage_id:" + str(row['cage_id']) + "  " + \
                  str(row['timestamp']) + "\n"
     return result
 
@@ -22,29 +22,29 @@ def get_light():
 def set_light():
     cage_id = request.form['cage_id']
     intensity = request.form['intensity']
-    start = request.form['start']
-    end = request.form['end']
+    start_light = request.form['start_light']
+    end_light = request.form['end_light']
     error = None
 
     if not cage_id:
         return jsonify({'status': 'Please enter cage id'}), 403
     elif not intensity:
         return jsonify({'status': 'Please enter intensity'}), 403
-    elif not start: 
+    elif not start_light: 
         return jsonify({'status': 'Please enter start time'}), 403  
-    elif not end: 
+    elif not end_light: 
         return jsonify({'status': 'Please enter stop time'}), 403       
 
     db = get_db()
     db.execute(
-        'INSERT INTO light (cage_id, intensity, start, end)'
+        'INSERT INTO light (cage_id, intensity, start_light, end_light)'
         ' VALUES (?, ?, ?, ?)',
-        (cage_id, intensity, start, end)
+        (cage_id, intensity, start_light, end_light)
     )
     db.commit()
 
     check = get_db().execute(
-        'SELECT id, timestamp, cage_id, intensity, start, end'
+        'SELECT id, timestamp, cage_id, intensity, start_light, end_light'
         ' FROM light'
         ' ORDER BY timestamp DESC'
     ).fetchone()
@@ -55,8 +55,8 @@ def set_light():
             'timestamp': check['timestamp'],
             'cage_id': check['cage_id'],
             'intensity': check['intensity'],
-            'start': check['start'],
-            'end': check['end']
+            'start_light': check['start_light'],
+            'end_light': check['end_light']
         }
         }), 200 
 
@@ -65,31 +65,31 @@ def update_light():
     light_id = request.form['id']
     cage_id = request.form['cage_id']
     intensity = request.form['intensity']
-    start = request.form['start']
-    end = request.form['end']
+    start_light = request.form['start_light']
+    end_light = request.form['end_light']
     if not light_id:
         return jsonify({'status': 'Please enter light id'}), 403
     if not cage_id:
         return jsonify({'status': 'Please enter cage id'}), 403
     elif not intensity:
         return jsonify({'status': 'Please enter intensity'}), 403
-    elif not start: 
+    elif not start_light: 
         return jsonify({'status': 'Please enter start time'}), 403  
-    elif not end: 
+    elif not end_light: 
         return jsonify({'status': 'Please enter stop time'}), 403 
 
 
     db = get_db()
     db.execute(
         'UPDATE light'
-        ' SET cage_id=?, intensity=?, start=?, end=?, timestamp=CURRENT_TIMESTAMP'
+        ' SET cage_id=?, intensity=?, start_light=?, end_light=?, timestamp=CURRENT_TIMESTAMP'
         ' WHERE id=?',
-        (cage_id, intensity, start, end, light_id)
+        (cage_id, intensity, start_light, end_light, light_id)
     )
     db.commit()
 
     check = get_db().execute(
-        'SELECT id, cage_id, intensity, start, end, timestamp'
+        'SELECT id, cage_id, intensity, start_light, end_light, timestamp'
         ' FROM light'
         ' WHERE id=?',
         (light_id,)
@@ -104,8 +104,8 @@ def update_light():
             'id': check['id'],
             'cage_id': check['cage_id'],
             'intensity': check['intensity'],
-            'start': check['start'],
-            'end': check['end'],
+            'start_light': check['start_light'],
+            'end_light': check['end_light'],
             'timestamp': check['timestamp']
         }
     }), 200

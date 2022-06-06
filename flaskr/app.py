@@ -2,6 +2,7 @@ from flask import Flask
 from threading import Thread
 from flask_mqtt import Mqtt
 from flask_socketio import SocketIO
+from flask_restful import Api, Resource
 
 
 import db
@@ -10,11 +11,20 @@ import status
 import food
 import parrot_type
 import cage
+import change_light
+import facility
+import feed
+import light_intens
 import feeding_schedule
 import parrot
 import light
 import heat
 import temperature
+import facility
+import heat
+from heat_data import parse_data, send_data
+from change_light import Lightintensity
+from cage_mode import CageMode
 
 import eventlet
 import json
@@ -26,6 +36,8 @@ mqtt = None
 socketio = None
 thread = None
 thread_temp = None
+thread_feed = None
+thread_light = None
 
 
 topic = 'python/mqtt'
@@ -41,16 +53,26 @@ def create_app(test_config=None):
       
     @app.route('/')
     def hello():
-        global thread, thread_temp
+        global thread, thread_temp, thread_feed,  thread_light
         if thread is None:
             thread = Thread(target=background_thread)
             thread.daemon = True
             thread.start()
+
             thread_temp = Thread(target=thread_temperature)
             thread_temp.daemon = True
             thread_temp.start()
 
+            thread_feed = Thread(target=thread_feed)
+            thread_temp.daemon = True
+            thread_temp.start
+
+            thread_light = Thread(target=thread_light)
+            thread_temp.daemon = True
+            thread.start()
+
         return 'Hello, World!'
+
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
@@ -78,12 +100,12 @@ def create_app(test_config=None):
 def background_thread():
     count = 0
     while True:
-        time.sleep(1)
-        # Using app context is required because the get_status() functions
-        # requires access to the db.
+        time.sleep(7)
         with app.app_context():
-            message = json.dumps(status.get_status(), default=str)
-        # Publish
+            message = '\n\nSystem status: \n'
+            message += json.dumps(status.get_status(), default=str)
+            message += '\n\nUtility notifications:\n'
+            message += json.dumps(status.get_utility_status(), default=str)
         mqtt.publish(topic, message)
 
 def create_mqtt_app():
@@ -100,6 +122,39 @@ def create_mqtt_app():
     mqtt = Mqtt(app)
     global socketio 
     socketio = SocketIO(app, async_mode="eventlet")
+
+def thread_feed_parrot():
+    while True:
+        with app.app_context():
+            message = '\n\nFeeding schedule check!\n'
+            message += json.dumps(feed.feed_the_parrot(), default=str)
+            message += '\n'
+        # Publish
+        mqtt.publish(topic, message)
+        time.sleep(4)
+
+def thread_light():
+    while True:
+        time.sleep(5)
+        with app.app_context():
+            message = '\nLight intensity auto-check!\n'
+            message += json.dumps(light_intens.light_intensity(), default=str)
+            message += '\n'
+        # Publish
+        mqtt.publish(topic, message)
+
+def tread__heat_data():
+    heat_data = parse_data('heat.csv')
+    sleepTime = 11
+    cage_id = 1
+    url = 'http://[::1]:5000/heat'
+    send_data(heat_data, cage_id, sleepTime, url)
+
+def create_rest_api(app):
+
+    api = Api(app)
+    api.add_resource(CageMode, '/cageMode/<int:id>')
+    return api
 
 
 def run_socketio_app():
